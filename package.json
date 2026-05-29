@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "npm nodemon src/index.js"
+    "start": "npx nodemon src/index.js"
   },
   "dependencies": {
     "body-parser": "^2.2.2",
