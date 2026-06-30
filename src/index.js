@@ -5,9 +5,7 @@ const { PORT } = require('./config/serverConfig');
 
 const apiRoutes = require('./routes/index');
 
-// const {User} = require('./models/index');
-// const bcrypt = require('bcrypt');
-// const UserRepository = require("./repository/user-repository");
+const UserService = require('./services/user-service')
 
 const app = express();
 
@@ -20,12 +18,13 @@ const prepareAndStartServer = () =>{
 
     app.listen(PORT, async () => {
         console.log(` Server Started at PORT ${PORT} .`);
-        // const repo = new UserRepository();
-        // const response = await repo.getById(1);
-        // console.log(response);
-        // const incomingPassword = '123456';
-        // const user = await User.findByPk(3);
-        // const response = bcrypt.compareSync(incomingPassword, user.password);
+        
+        // const service = new UserService();
+        // // const newToken = service.createToken({email:'sonali@gmail.com',id:1});
+        // // console.log("new token is : ",newToken);
+        // const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbmFsaUBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzgyODAyNDYwLCJleHAiOjE3ODI4MDI0OTB9.HJ5-EaL0e6f_Yiy-wmklSzjbfu3rbja0Xr6vDRdF4jo';
+
+        // const response = service.verifyToken(token);
         // console.log(response);
     });
 }
