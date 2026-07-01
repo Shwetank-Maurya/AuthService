@@ -68,6 +68,7 @@ class UserService {
             throw (error);
         }
     }
+    
     verifyToken(token){
         try {
             const response = jwt.verify(token,JWT_KEY);
@@ -85,6 +86,16 @@ class UserService {
         } catch (error) {
             console.log("Something went wrong in password comparision. ")
             throw(error);
+        }
+    }
+
+    isAdmin(userId){
+        try {
+            return this.userRepository.isAdmin(userId);
+        } catch (error) {
+            console.log("Something went wrong in the service layer");
+            throw (error);
+            
         }
     }
 }
