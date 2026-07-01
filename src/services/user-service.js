@@ -14,8 +14,12 @@ class UserService {
             const user = await this.userRepository.create(data);
             return user;
         } catch (error) {
+            console.log(error);
+            if (error.name == 'SequelizeValidationError'){
+                throw error;
+            }
             console.log("Something went wrong in the service layer");
-            throw {error};
+            throw (error);
         }
     }
 
@@ -68,7 +72,7 @@ class UserService {
             throw (error);
         }
     }
-    
+
     verifyToken(token){
         try {
             const response = jwt.verify(token,JWT_KEY);
